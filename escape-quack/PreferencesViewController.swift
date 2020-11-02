@@ -18,6 +18,7 @@ class PreferencesViewController: NSViewController {
     @IBOutlet var clearButton: NSButton!
     @IBOutlet var shortcutButton: NSButton!
     @IBOutlet var enabledCheckBox: NSButton!
+    @IBOutlet var testButton: NSButton!
     var enabled : Bool!
 
     // When this boolean is true we will allow the user to set a new keybind.
@@ -68,15 +69,20 @@ class PreferencesViewController: NSViewController {
                 carbonFlags: event.modifierFlags.carbonFlags,
                 characters: characters,
                 keyCode: UInt32(event.keyCode),
-                enabled: self.enabled
+                enabled: enabled
             )
 
             Storage.store(newGlobalKeybind, to: .documents, as: "globalKeybind.json")
             updateKeybindButton(newGlobalKeybind)
             clearButton.isEnabled = true
+            clearButton.state = NSControl.StateValue.on
             escape_quack.AppDelegate.hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: UInt32(event.keyCode), carbonModifiers: event.modifierFlags.carbonFlags))
         }
 
+    }
+    
+    @IBAction func testTheButton(_ sender: Any) {
+        print("over the years...")
     }
 
     // When the set shortcut button is pressed start listening for the new shortcut
@@ -95,8 +101,7 @@ class PreferencesViewController: NSViewController {
     }
     
     @IBAction func toggleEnable(_ sender: Any?) {
-        self.enabled = !(self.enabled == nil ? true : self.enabled)
-        enabledCheckBox.state = self.enabled ? NSControl.StateValue.on : NSControl.StateValue.off
+        enabled = !(enabled == nil ? true : enabled)
         let globalKeybinds = Storage.fileExists("globalKeybind.json", in: .documents) ? Storage.retrieve("globalKeybind.json", from: .documents, as: GlobalKeybindPreferences.self) : GlobalKeybindPreferences.defaultPreferences
         Storage.store(GlobalKeybindPreferences.init(
             function: globalKeybinds.function,
@@ -108,9 +113,10 @@ class PreferencesViewController: NSViewController {
             carbonFlags: globalKeybinds.carbonFlags,
             characters: globalKeybinds.characters,
             keyCode: globalKeybinds.keyCode,
-            //toggle enabled
             enabled: self.enabled
         ), to: .documents, as: "globalKeybind.json")
+        
+        updateEnabled(globalKeybinds)
     }
 
     // If a keybind is set, allow users to clear it by enabling the clear button.
@@ -129,5 +135,6 @@ class PreferencesViewController: NSViewController {
 
     func updateEnabled(_ globalKeybindPreference : GlobalKeybindPreferences) {
         enabled = globalKeybindPreference.enabled
+        enabledCheckBox.state = self.enabled ? NSControl.StateValue.on : NSControl.StateValue.off
     }
 }

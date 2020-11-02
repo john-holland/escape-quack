@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="XfG-lQ-9wD">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
@@ -705,7 +705,7 @@
         <!--Preferences View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="PreferencesViewController" customModule="escape_quack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="PreferencesViewController" customModule="escape_quack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="RAc-j3-Oij">
                         <rect key="frame" x="0.0" y="0.0" width="275" height="207"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -713,7 +713,7 @@
                             <button identifier="clearButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-RC-a6s">
                                 <rect key="frame" x="94" y="70" width="87" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wP1-V6-bap">
+                                <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wP1-V6-bap">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="20"/>
                                 </buttonCell>
@@ -738,12 +738,20 @@
                                 <buttonCell key="cell" type="roundTextured" title="shortcut" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" identifier="shortcutButton" imageScaling="proportionallyDown" inset="2" id="HCR-EE-LHi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="30"/>
-                                    <connections>
-                                        <binding destination="XfG-lQ-9wD" name="target" keyPath="self" id="HDZ-lv-ngd"/>
-                                    </connections>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="register:" target="rPt-NT-nkU" id="kOr-uX-7Ry"/>
+                                    <action selector="register:" target="rPt-NT-nkU" id="SzA-H1-aRf"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRK-2W-udF">
+                                <rect key="frame" x="94" y="153" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" identifier="testButton" imageScaling="proportionallyDown" inset="2" id="t44-kN-Afx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="testTheButton:" target="XfG-lQ-9wD" id="YB2-T1-feb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -751,7 +759,8 @@
                     <connections>
                         <outlet property="clearButton" destination="FIe-RC-a6s" id="aIY-8q-eNn"/>
                         <outlet property="enabledCheckBox" destination="5qJ-5V-HGU" id="PiU-EF-hOZ"/>
-                        <outlet property="shortcutButton" destination="Sq7-Yq-PUM" id="v14-N0-BME"/>
+                        <outlet property="shortcutButton" destination="Sq7-Yq-PUM" id="EM1-xN-8xN"/>
+                        <outlet property="testButton" destination="KRK-2W-udF" id="Vvh-38-f8c"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
