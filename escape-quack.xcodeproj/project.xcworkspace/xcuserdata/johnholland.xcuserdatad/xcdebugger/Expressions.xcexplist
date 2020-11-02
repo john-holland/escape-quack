@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "PreferencesViewController.updateGlobalShortcut(_:):PreferencesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.enabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -42,12 +42,15 @@ class PreferencesViewController: NSViewController {
 
         // Check to see if the keybind has been stored previously
         // If it has then update the UI with the below methods.
+        var globalKeybinds = GlobalKeybindPreferences.defaultPreferences
         if Storage.fileExists("globalKeybind.json", in: .documents) {
-            let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: GlobalKeybindPreferences.self)
-            updateKeybindButton(globalKeybinds)
-            updateClearButton(globalKeybinds)
-            updateEnabled(globalKeybinds)
+            globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: GlobalKeybindPreferences.self)
+            
         }
+        
+        updateKeybindButton(globalKeybinds)
+        updateClearButton(globalKeybinds)
+        updateEnabled(globalKeybinds)
     }
 
     // When a shortcut has been pressed by the user, turn off listening so the window stops listening for keybinds
@@ -78,7 +81,6 @@ class PreferencesViewController: NSViewController {
             clearButton.state = NSControl.StateValue.on
             escape_quack.AppDelegate.hotKey = HotKey(keyCombo: KeyCombo(carbonKeyCode: UInt32(event.keyCode), carbonModifiers: event.modifierFlags.carbonFlags))
         }
-
     }
     
     @IBAction func testTheButton(_ sender: Any) {
@@ -89,7 +91,7 @@ class PreferencesViewController: NSViewController {
     @IBAction func register(_ sender: Any) {
         unregister(nil)
         listening = true
-        view.window?.makeFirstResponder(nil)
+        view.becomeFirstResponder()
     }
 
     // If the shortcut is cleared, clear the UI and tell AppDelegate to stop listening to the previous keybind.

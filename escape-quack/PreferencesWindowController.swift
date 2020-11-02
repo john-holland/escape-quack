@@ -9,20 +9,42 @@
 
 import Foundation
 import Cocoa
+import Carbon
 
 class PreferencesWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+        becomeFirstResponder()
+        
+        let touchbar = NSTouchBar()
+        
+        
+    }
+    
+    override var acceptsFirstResponder: Bool {
+        get {
+            return true
+        }
     }
 
     override func keyDown(with event: NSEvent) {
-        super.keyDown(with: event)
-        NSSound(named: "Purr")?.play()
+        //super.keyDown(with: event)
         if let vc = self.contentViewController as? PreferencesViewController {
             if vc.listening {
+                NSSound(named: "Purr")?.play()
                 vc.updateGlobalShortcut(event)
             }
         }
     }
+    
+    override func performKeyEquivalent(with event: NSEvent) -> Bool {
+            switch Int(event.keyCode) {
+            case kVK_Escape:
+                print("Esc pressed")
+                return true
+            default:
+                return super.performKeyEquivalent(with: event)
+            }
+        }
 }
