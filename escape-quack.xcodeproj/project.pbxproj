@@ -15,6 +15,7 @@
 		09553020254F8B5D00B5F876 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0955301F254F8B5D00B5F876 /* MainWindow.swift */; };
 		09553024254F8F6500B5F876 /* EscapeQuackPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09553023254F8F6500B5F876 /* EscapeQuackPreferences.swift */; };
 		09553028254F922E00B5F876 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09553027254F922E00B5F876 /* Storage.swift */; };
+		0955302C254FDBDD00B5F876 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 0955302B254FDBDD00B5F876 /* readme.md */; };
 		0970C06E254F497A007298BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970C06D254F497A007298BB /* AppDelegate.swift */; };
 		0970C070254F497A007298BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970C06F254F497A007298BB /* ViewController.swift */; };
 		0970C073254F497A007298BB /* escape_quack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0970C071254F497A007298BB /* escape_quack.xcdatamodeld */; };
@@ -63,6 +64,7 @@
 		0955301F254F8B5D00B5F876 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		09553023254F8F6500B5F876 /* EscapeQuackPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeQuackPreferences.swift; sourceTree = "<group>"; };
 		09553027254F922E00B5F876 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		0955302B254FDBDD00B5F876 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		0970C06A254F497A007298BB /* escape-quack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "escape-quack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0970C06D254F497A007298BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0970C06F254F497A007298BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				09532B32254F853300FE5308 /* Cartfile */,
+				0955302B254FDBDD00B5F876 /* readme.md */,
 				0970C06C254F497A007298BB /* escape-quack */,
 				0970C082254F497C007298BB /* escape-quackTests */,
 				0970C08D254F497C007298BB /* escape-quackUITests */,
@@ -278,6 +281,7 @@
 			files = (
 				09532B33254F853300FE5308 /* Cartfile in Resources */,
 				0970C075254F497C007298BB /* Assets.xcassets in Resources */,
+				0955302C254FDBDD00B5F876 /* readme.md in Resources */,
 				0970C078254F497C007298BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

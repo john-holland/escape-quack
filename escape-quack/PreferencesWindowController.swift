@@ -16,10 +16,6 @@ class PreferencesWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         becomeFirstResponder()
-        
-        let touchbar = NSTouchBar()
-        
-        
     }
     
     override var acceptsFirstResponder: Bool {
